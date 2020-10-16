@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recipe"
+            type="com.develop.recipes.data.model.RecipeModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.main.view.RecipeDetailsActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@{recipe.headline}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:orientation="horizontal">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:loadimage="@{recipe.image}"
+                app:riv_corner_radius="@dimen/_8sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:gravity="start|center"
+                    android:text="@{`Calories: `+ recipe.calories}"
+                    android:textColor="@color/txt_color_gray"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:gravity="start|center"
+                    android:text="@{`Carbos: `+ recipe.carbos}"
+                    android:textColor="@color/txt_color_gray"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:gravity="start|center"
+                    android:text="@{`Fats: `+ recipe.fats}"
+                    android:textColor="@color/txt_color_gray"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:gravity="start|center"
+                    android:text="@{`Proteins: `+ recipe.proteins}"
+                    android:textColor="@color/txt_color_gray"
+                    android:textSize="@dimen/_14ssp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:fontFamily="@font/tajawal_medium"
+            android:text="@string/description"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:fontFamily="@font/tajawal_medium"
+            android:gravity="start|center"
+            android:text="@{recipe.description}"
+            android:textColor="@color/txt_color_gray"
+            android:textSize="@dimen/_14ssp" />
+
+
+        <TextView
+            android:id="@+id/no_internet_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tajawal_medium"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="No internet connection avaliable"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="@dimen/_180sdp"
+            android:textSize="@dimen/_14ssp" />
+    </LinearLayout>
+</layout>
